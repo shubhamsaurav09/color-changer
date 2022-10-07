@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./index.css";
+import Child from "./Child";
 
-function App() {
+export default function App() {
+  const [color, setColor] = useState("");
+
+  const getColor = (color) => {
+    setColor(color);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="fullscreen">
+      <h1>Color Changer</h1>
+      <div className="container" style={{ background: `${color}` }}></div>
+      <h3>Enter a valid color name</h3>
+      <Child getColor={getColor} />
     </div>
   );
 }
-
-export default App;
